@@ -5,6 +5,8 @@ from .combat import *
 from .lucidscape import *
 from .wilderness import *
 from .outside_deduction import *
+from .typewriter_mark import *
+
 
 __all__ = [
     "Screenshot",
@@ -24,4 +26,6 @@ __all__ = [
     "SummonlngSwipe",
     "SOD_DifficultySelect",
     "SelectChapter",
+    "mark_success",
+    "mark_fail",
 ]

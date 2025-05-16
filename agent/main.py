@@ -3,7 +3,11 @@ import sys
 import json
 import subprocess
 from pathlib import Path
+from scripts.TypeWriterCodeInput import TypeWriterCodeInput
 
+custom = {
+    "TypeWriterCodeInput": TypeWriterCodeInput
+}
 # 默认编码 utf-8
 sys.stdout.reconfigure(encoding="utf-8")
 

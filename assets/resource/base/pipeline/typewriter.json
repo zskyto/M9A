@@ -1,7 +1,7 @@
 {
     "打字机兑奖": {
         "recognition": "TemplateMatch",
-        "template": "typewriter.png",
+        "template": "TypeWriter\typewriter.png",
         "roi": [
             569,
             41,
@@ -14,7 +14,7 @@
     },
     "进入打字机": {
         "recognition": "TemplateMatch",
-        "template": "typewriter2.png",
+        "template": "TypeWriter\typewriter2.png",
         "action": "Click",
         "post_delay": 800,
         "next": "打开输入框"
@@ -27,12 +27,18 @@
             268,
             38
         ],
-        "next": "输入兑奖码1"
+        "next": "输入兑奖码"
     },
-    "输入兑奖码1": {
-        "action": "InputText",
-        "input_text": "URD",
-        "next": "释放焦点"
+    "输入兑奖码": {
+        "action": "Custom",
+        "custom_action": "TypeWriterCodeInput",
+        "custom_action_param": {
+            "codes": "assets/resource/base/pipeline/typewriter_codes.json"
+        },
+        "next": [
+            "记录失败",
+            "释放焦点"
+        ]
     },
     "释放焦点": {
         "action": "Click",
@@ -46,13 +52,40 @@
     },
     "提交兑奖": {
         "recognition": "TemplateMatch",
-        "template": "ok.png",
+        "template": "TypeWriter\ok.png",
         "action": "Click",
-        "next": "兑奖成功",
-        "interrupt": "返回"
+        "next": "兑奖结果识别"
     },
-    "兑奖成功": {
-        "action": "Click"
+    "兑奖结果识别": {
+        "recognition": "OCR",
+        "expected": "获得物品",
+        "next": [
+            "记录成功",
+            "打开输入框"
+        ],
+        "interrupt": "兑奖失败"
     },
-    "返回": {}
+    "兑奖失败": {
+        "recognition": "OCR",
+        "expected": "你已窥探这一密语",
+        "roi": [
+            551,
+            357,
+            170,
+            32
+        ],
+        "next": [
+            "记录失败",
+            "打开输入框"
+        ]
+    },
+    "记录成功": {
+        "action": "Custom",
+        "custom_action": "TypeWriterCodeInput.mark_success",
+        "next": "打开输入框"
+    },
+    "记录失败": {
+        "action": "Custom",
+        "custom_action": "TypeWriterCodeInput.mark_fail"
+    }
 }
