@@ -1,0 +1,58 @@
+{
+    "打字机兑奖": {
+        "recognition": "TemplateMatch",
+        "template": "typewriter.png",
+        "roi": [
+            569,
+            41,
+            44,
+            47
+        ],
+        "action": "Click",
+        "post_delay": 800,
+        "next": "进入打字机"
+    },
+    "进入打字机": {
+        "recognition": "TemplateMatch",
+        "template": "typewriter2.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": "打开输入框"
+    },
+    "打开输入框": {
+        "action": "Click",
+        "target": [
+            483,
+            395,
+            268,
+            38
+        ],
+        "next": "输入兑奖码1"
+    },
+    "输入兑奖码1": {
+        "action": "InputText",
+        "input_text": "URD",
+        "next": "释放焦点"
+    },
+    "释放焦点": {
+        "action": "Click",
+        "target": [
+            483,
+            395,
+            268,
+            38
+        ],
+        "next": "提交兑奖"
+    },
+    "提交兑奖": {
+        "recognition": "TemplateMatch",
+        "template": "ok.png",
+        "action": "Click",
+        "next": "兑奖成功",
+        "interrupt": "返回"
+    },
+    "兑奖成功": {
+        "action": "Click"
+    },
+    "返回": {}
+}
