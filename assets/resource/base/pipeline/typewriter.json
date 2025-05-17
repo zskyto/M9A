@@ -1,7 +1,7 @@
 {
     "打字机兑奖": {
         "recognition": "TemplateMatch",
-        "template": "TypeWriter\typewriter.png",
+        "template": "TypeWriter/typewriter.png",
         "roi": [
             569,
             41,
@@ -14,7 +14,7 @@
     },
     "进入打字机": {
         "recognition": "TemplateMatch",
-        "template": "TypeWriter\typewriter2.png",
+        "template": "TypeWriter/typewriter2.png",
         "action": "Click",
         "post_delay": 800,
         "next": "打开输入框"
@@ -36,7 +36,6 @@
             "codes": "assets/resource/base/pipeline/typewriter_codes.json"
         },
         "next": [
-            "记录失败",
             "释放焦点"
         ]
     },
@@ -52,7 +51,7 @@
     },
     "提交兑奖": {
         "recognition": "TemplateMatch",
-        "template": "TypeWriter\ok.png",
+        "template": "TypeWriter/ok.png",
         "action": "Click",
         "next": "兑奖结果识别"
     },
@@ -81,11 +80,11 @@
     },
     "记录成功": {
         "action": "Custom",
-        "custom_action": "TypeWriterCodeInput.mark_success",
+        "custom_action": "TypewriterMarkSuccess",
         "next": "打开输入框"
     },
     "记录失败": {
         "action": "Custom",
-        "custom_action": "TypeWriterCodeInput.mark_fail"
+        "custom_action": "TypewriterMarkFail"
     }
 }
